@@ -2,6 +2,8 @@
 
 *This was developed on, and tested with Manjaro Plasma 21.2.2*
 
+**Note: This is experimental, please check out the main [goxlr-on-linux repository](https://github.com/GoXLR-on-Linux/goxlr-on-linux) for a better tested method**
+
 This is currently only known to be working on Manjaro, it differs slightly from existing scripts in that it focuses
 on using systemd and pulse directly to implement functionality, which should provide better reliability and additional
 features.
