@@ -1,0 +1,16 @@
+# Module to prepare Jack to Communicate with the GoXLR, this primarily needs to be run before Pulse and Pipewire,
+# but once configured can remain running unless explicitly told to stop, as the settings will persist through
+# logout / login, and on a per-user basis.
+
+[Unit]
+Description=GoXLR Pre-Configuration
+After=dbus.service
+Before=pipewire.service pulseaudio.service
+
+[Service]
+Type=simple
+ExecStart=/usr/share/goxlr/prepare_jack.sh
+ExecStop=/usr/share/goxlr/stop_jack.sh
+
+[Install]
+WantedBy=default.target

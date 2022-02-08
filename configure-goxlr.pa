@@ -1,0 +1,29 @@
+# So, jackdbus-detect will automatically create jack sinks and sources simply because jack is running, this is actually a problem for us.
+# We don't want jack to be autoconfigured, we want to configure it manually! So unload the module if it's there.
+
+.ifexists module-jackdbus-detect.so
+unload-module module-jackdbus-detect
+.endif
+
+# Set the Card Profile..
+set-card-profile alsa_card.usb-TC-Helicon_GoXLR-00 output:multichannel-output+input:multichannel-input
+
+# Load Sinks (We use sink_name here, so we can rename with spaces later..)
+load-module module-jack-sink sink_name=GoXLR_System channels=2 client_name=GoXLR_Sink_System connect=no
+load-module module-jack-sink sink_name=GoXLR_Game   channels=2 client_name=GoXLR_Sink_Game   connect=no
+load-module module-jack-sink sink_name=GoXLR_Music  channels=2 client_name=GoXLR_Sink_Music  connect=no
+load-module module-jack-sink sink_name=GoXLR_Chat   channels=2 client_name=GoXLR_Sink_Chat   connect=no
+load-module module-jack-sink sink_name=GoXLR_Sample channels=2 client_name=GoXLR_Sink_Sample connect=no
+
+update-sink-proplist GoXLR_System device.description='GoXLR System'
+update-sink-proplist GoXLR_Game   device.description='GoXLR Game'
+update-sink-proplist GoXLR_Music  device.description='GoXLR Music'
+update-sink-proplist GoXLR_Chat   device.description='GoXLR Chat'
+update-sink-proplist GoXLR_Sample device.description='GoXLR Sample'
+
+# Load Sources..
+load-module module-jack-source source_name=GoXLR_Broadcast channels=2 client_name=GoXLR_Source_Broadcast_Mix connect=no
+load-module module-jack-source source_name=GoXLR_Chat_Mic  channels=2 client_name=GoXLR_Source_Chat          connect=no
+
+update-source-proplist GoXLR_Broadcast device.description='GoXLR Broadcast Mix'
+update-source-proplist GoXLR_Chat_Mic  device.description='GoXLR Chat Mic'

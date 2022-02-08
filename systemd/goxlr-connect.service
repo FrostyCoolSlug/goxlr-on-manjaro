@@ -1,0 +1,15 @@
+# The service used to bind JACK ports to the PulseAudio interface, this binds to pulse directly to ensure it's executed
+# as soon after pulse has started as possible, it also ensures that if pulse were to restart, the connections will be
+# correctly persisted.
+
+[Unit]
+Description=GoXLR Post-Configuration
+After=pulseaudio.service
+BindsTo=pulseaudio.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/goxlr/connect_jack.sh
+
+[Install]
+WantedBy=pulseaudio.service
