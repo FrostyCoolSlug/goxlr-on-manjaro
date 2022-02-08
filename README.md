@@ -43,8 +43,7 @@ Copy the files in this repository into `/usr/share/goxlr`
 
 - Globally enable the systemd units..
 
-`sudo systemctl --global enable goxlr-prepare.service`  
-`sudo systemctl --global enable goxlr-connect.service`
+`sudo systemctl --global enable goxlr-prepare.service goxlr-connect.service`  
 
 Reboot, the GoXLR should begin working immediately on login.
 
