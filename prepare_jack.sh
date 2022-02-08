@@ -12,6 +12,3 @@ jack_control dps rate 48000
 jack_control dps nperiods 3
 
 jack_control start
-
-# Keep this script running so SystemD can monitor..
-sleep infinity
