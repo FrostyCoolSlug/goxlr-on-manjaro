@@ -9,6 +9,7 @@ Before=pipewire.service pulseaudio.service
 
 [Service]
 Type=oneshot
+RemainAfterExit=true
 ExecStart=/usr/share/goxlr/prepare_jack.sh
 ExecStop=/usr/share/goxlr/stop_jack.sh
 
