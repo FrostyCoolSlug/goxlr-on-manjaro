@@ -6,6 +6,7 @@
 Description=GoXLR Post-Configuration
 After=pulseaudio.service
 BindsTo=pulseaudio.service
+ConditionUser=!@system
 
 [Service]
 Type=oneshot
