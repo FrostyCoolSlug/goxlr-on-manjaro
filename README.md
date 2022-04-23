@@ -1,6 +1,6 @@
 # GoXLR on Linux Configuration
 
-*This was developed on, and tested with Manjaro Plasma 21.2.2*
+*This was developed on Manjaro Plasma 21.2.2, and tested with Manjaro Plasma 21.2.2 and Manjaro Gnome 21.2.3*
 
 **Note: This is experimental, please check out the main [goxlr-on-linux repository](https://github.com/GoXLR-on-Linux/goxlr-on-linux) for a better tested method**
 
